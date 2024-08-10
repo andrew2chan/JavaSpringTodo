@@ -1,8 +1,6 @@
 package com.andrew2chan.javatodolist.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +14,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "entities")
 public class UserEntity {
     @Id
+    @OneToMany(cascade = CascadeType.ALL)
     private String username;
 }

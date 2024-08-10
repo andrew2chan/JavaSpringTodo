@@ -1,6 +1,5 @@
 package com.andrew2chan.javatodolist.domain.dto;
 
-import com.andrew2chan.javatodolist.domain.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,8 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TodoDTO {
-    private Long id;
-    private UserDTO username;
-    private String todo;
+public class UserDTO {
+    private String username;
 }
