@@ -5,6 +5,10 @@ import com.andrew2chan.javatodolist.respositories.TodoRepository;
 import com.andrew2chan.javatodolist.services.TodoService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 @Service
 public class TodoServiceImpl implements TodoService {
     private TodoRepository todoRepository;
@@ -16,5 +20,10 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public TodoEntity createTodo(TodoEntity todo) {
         return todoRepository.save(todo);
+    }
+
+    @Override
+    public List<TodoEntity> getAllTodos() {
+        return StreamSupport.stream(todoRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }
 }

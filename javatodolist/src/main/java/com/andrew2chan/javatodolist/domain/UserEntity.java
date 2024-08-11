@@ -14,6 +14,5 @@ import lombok.NoArgsConstructor;
 @Table(name = "entities")
 public class UserEntity {
     @Id
-    @OneToMany(cascade = CascadeType.ALL)
     private String username;
 }
