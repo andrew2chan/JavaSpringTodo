@@ -6,10 +6,7 @@ import com.andrew2chan.javatodolist.mappers.TodoMapper;
 import com.andrew2chan.javatodolist.services.TodoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,5 +40,12 @@ public class TodoController {
                 .map(mapper::mapTo)
                 .collect(Collectors.toList());
 
+    }
+
+    @DeleteMapping(path = "/todo/{id}")
+    public ResponseEntity<String> deleteTodo(@PathVariable Long id) {
+        todoService.deleteTodo(id);
+
+        return new ResponseEntity<>("Deleted", HttpStatus.NO_CONTENT);
     }
 }

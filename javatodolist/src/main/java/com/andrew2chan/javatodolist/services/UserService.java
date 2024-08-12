@@ -2,7 +2,8 @@ package com.andrew2chan.javatodolist.services;
 
 import com.andrew2chan.javatodolist.domain.UserEntity;
 
+import java.util.List;
+
 public interface UserService {
-    UserEntity createUser(UserEntity userEntity);
-    UserEntity getUser(UserEntity userEntity);
+    List<UserEntity> getUsers();
 }

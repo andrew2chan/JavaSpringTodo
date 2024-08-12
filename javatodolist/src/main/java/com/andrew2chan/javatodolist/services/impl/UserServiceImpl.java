@@ -5,6 +5,10 @@ import com.andrew2chan.javatodolist.respositories.UserRepository;
 import com.andrew2chan.javatodolist.services.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 @Service
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
@@ -14,12 +18,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserEntity createUser(UserEntity userEntity) {
-        return userRepository.save(userEntity);
-    }
-
-    @Override
-    public UserEntity getUser(UserEntity userEntity) {
-        return null;
+    public List<UserEntity> getUsers() {
+        return StreamSupport
+                .stream(userRepository.findAll().spliterator(), false).
+                collect(Collectors.toList());
     }
 }
