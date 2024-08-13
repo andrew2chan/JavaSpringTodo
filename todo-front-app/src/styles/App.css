@@ -1,0 +1,25 @@
+#main-body {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+    height: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex > * {
+    flex: 1;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.container {
+    min-width: 300px;
+    min-height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 3px lightgray;
+}
