@@ -6,6 +6,7 @@ import Username from './Username';
 
 function App() {
   const [username, updateUsername] = useState("");
+  const [todoList, updateTodoList] = useState([] as any[]);
 
   return (
     <main id="main-body">
@@ -16,8 +17,8 @@ function App() {
             <Username updateUsername={updateUsername} />
           ) : (
             <>
-              <TodoInputsComponent username={username} />
-              <TodoOutputsComponent />
+              <TodoInputsComponent username={username} updatetodolist={updateTodoList} />
+              <TodoOutputsComponent todolist={todoList} updatetodolist={updateTodoList} />
             </>
           )
         }

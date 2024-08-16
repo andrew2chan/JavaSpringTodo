@@ -2,10 +2,11 @@ import TodoInputs from "./TodoInputs";
 import { useState } from "react";
 
 type todoInputsType = {
-    "username" : string
+    "username" : string,
+    "updatetodolist": React.Dispatch<any[]>
 }
 
-const TodoInputsComponent = ({ username }: todoInputsType) => {
+const TodoInputsComponent = ({ username, updatetodolist }: todoInputsType) => {
     const [todoInput, updateTodoInput] = useState("");
 
     const todoInputEventOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +35,16 @@ const TodoInputsComponent = ({ username }: todoInputsType) => {
         })
         .then((res) => {
             console.log(res);
+            const optNewList = {
+                "method": "GET"
+            };
+    
+            fetch("http://localhost:8080/todo", optNewList)
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+                updatetodolist([...res]);
+            })
         })
     }
 
